@@ -1,0 +1,14 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1727450305
+a.png::CompressedTexture2D::8428307272251645519::1727450266::1727450307::1::::<><>::
+b.png::CompressedTexture2D::8590579133759990268::1727450266::1727450307::1::::<><>::
+bg.png::CompressedTexture2D::2310628432973216738::1727450266::1727450307::1::::<><>::
+capivarinhas.png::CompressedTexture2D::391153203910761444::1727450266::1727450307::1::::<><>::
+cave.png::CompressedTexture2D::4784301495336549622::1727450266::1727450307::1::::<><>::
+global.gd::GDScript::-1::1727450266::0::1::::<>Node<>::
+iara2.png::CompressedTexture2D::8832569911196708582::1727450266::1727450307::1::::<><>::
+iara.png::CompressedTexture2D::220722699382124258::1727450266::1727450307::1::::<><>::
+icon.svg::CompressedTexture2D::6205420743413050227::1727450266::1727450307::1::::<><>::
+MainScene.tscn::PackedScene::4270281078357176008::1727450265::0::1::::<><>::res://player.gd<>uid://76jyh5eb1yqc::::res://bg.png<>res://main_scene.gd<>uid://cafs0ndws1ig1::::res://cave.png<>uid://ftqia7p67d1u::::res://capivarinhas.png<>uid://dunlt3hog2ykq::::res://b.png<>uid://dx3tevgwx8ld3::::res://iara2.png
+main_scene.gd::GDScript::-1::1727450265::0::1::::<>Node2D<>::
+player.gd::GDScript::-1::1727450266::0::1::::<>CharacterBody2D<>::
