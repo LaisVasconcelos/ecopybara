@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b13s51ynbflf1"]
+[gd_scene load_steps=23 format=3 uid="uid://b13s51ynbflf1"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_7u5v8"]
 [ext_resource type="Texture2D" uid="uid://76jyh5eb1yqc" path="res://bg.png" id="1_a6fw6"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cafs0ndws1ig1" path="res://cave.png" id="3_buu3j"]
 [ext_resource type="Texture2D" uid="uid://ftqia7p67d1u" path="res://capivarinhas.png" id="4_ke6n6"]
 [ext_resource type="Texture2D" uid="uid://dunlt3hog2ykq" path="res://b.png" id="5_kfb2m"]
+[ext_resource type="Texture2D" uid="uid://dl0vrvaopu0ub" path="res://aaa2.png" id="7_d5slw"]
 [ext_resource type="Texture2D" uid="uid://dx3tevgwx8ld3" path="res://iara2.png" id="7_p85fp"]
+[ext_resource type="Texture2D" uid="uid://dsq083nxym801" path="res://aaa.png" id="9_3rosd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0218c"]
 size = Vector2(1787.55, 67.8788)
@@ -30,6 +32,10 @@ size = Vector2(38, 70)
 atlas = ExtResource("4_ke6n6")
 region = Rect2(343, 536, 288, 400)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgc8"]
+atlas = ExtResource("4_ke6n6")
+region = Rect2(652, 493, 326, 492)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_nm3fi"]
 atlas = ExtResource("5_kfb2m")
 region = Rect2(25, 7, 310, 420)
@@ -43,6 +49,15 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mtikh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgc8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_d5slw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3rosd")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nm3fi")
@@ -149,7 +164,7 @@ script = ExtResource("1_7u5v8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 scale = Vector2(0.219403, 0.219403)
 sprite_frames = SubResource("SpriteFrames_of46r")
-animation = &"Parada"
+animation = &"Andar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(0, 1)
