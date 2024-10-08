@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 # Limites da fase
 @export var limite_esquerda = 0  # Limite esquerdo da fase
-@export var limite_direita = 1152  # Limite direito da fase
+var limite_direita = 1700  # Limite direito da fase
 @export var limite_superior = 0  # Limite superior (normalmente o chão)
 @export var limite_inferior = 648  # Limite inferior (normalmente a altura da fase)
 
