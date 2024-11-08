@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var actionable_finder: Area2D = $Direction/ActionableFinder 
 # Variáveis de controle de movimento
 @export var velocidade = 200  # Velocidade horizontal do personagem
 @export var pulo_forca = 500  # Força do pulo
@@ -7,7 +8,7 @@ extends CharacterBody2D
 
 # Limites da fase
 @export var limite_esquerda = 0  # Limite esquerdo da fase
-var limite_direita = 1700  # Limite direito da fase
+@export var limite_direita = 1152  # Limite direito da fase
 @export var limite_superior = 0  # Limite superior (normalmente o chão)
 @export var limite_inferior = 648  # Limite inferior (normalmente a altura da fase)
 
@@ -19,6 +20,13 @@ func _ready():
 func _process(delta):
 	_movimentar_personagem(delta)
 	_manter_dentro_dos_limites()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_interact2"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return
 
 # Função para movimentar o personagem
 func _movimentar_personagem(delta):

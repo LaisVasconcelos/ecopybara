@@ -1,15 +1,16 @@
-[gd_scene load_steps=27 format=3 uid="uid://b3kxcmiflqfvu"]
+[gd_scene load_steps=29 format=3 uid="uid://b3kxcmiflqfvu"]
 
 [ext_resource type="Texture2D" uid="uid://cmg7q5sn3dkco" path="res://Tiles/backForest.png" id="1_04m8p"]
 [ext_resource type="Texture2D" uid="uid://dh2nbx4jeevqg" path="res://Tiles/Tiles.png" id="2_lvs73"]
 [ext_resource type="Script" path="res://player.gd" id="3_7v6mo"]
 [ext_resource type="Texture2D" uid="uid://p0txulj2o3la" path="res://Tiles/tile.png" id="3_t6wg2"]
-[ext_resource type="Texture2D" uid="uid://ftqia7p67d1u" path="res://capivarinhas.png" id="4_gt7gg"]
-[ext_resource type="Texture2D" uid="uid://dl0vrvaopu0ub" path="res://aaa2.png" id="5_se85f"]
-[ext_resource type="Texture2D" uid="uid://dsq083nxym801" path="res://aaa.png" id="6_e5omg"]
-[ext_resource type="Texture2D" uid="uid://dunlt3hog2ykq" path="res://b.png" id="7_7c1fg"]
+[ext_resource type="Texture2D" uid="uid://ftqia7p67d1u" path="res://Sprites/Capivara/capivarinhas.png" id="4_gt7gg"]
+[ext_resource type="Texture2D" uid="uid://dl0vrvaopu0ub" path="res://Sprites/Capivara/aaa2.png" id="5_se85f"]
+[ext_resource type="Texture2D" uid="uid://dsq083nxym801" path="res://Sprites/Capivara/aaa.png" id="6_e5omg"]
+[ext_resource type="Texture2D" uid="uid://dunlt3hog2ykq" path="res://Sprites/Capivara/b.png" id="7_7c1fg"]
 [ext_resource type="Script" path="res://peixe_1.gd" id="9_oixvf"]
 [ext_resource type="Texture2D" uid="uid://rhsuy57tmoeo" path="res://npcs/animais/peixe1.png" id="10_eieax"]
+[ext_resource type="PackedScene" uid="uid://6yyim8eer220" path="res://helpers/actionable.tscn" id="11_8kplm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jdv71"]
 texture = ExtResource("2_lvs73")
@@ -4632,10 +4633,10 @@ animations = [{
 "texture": ExtResource("5_se85f")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_e5omg")
+"texture": SubResource("AtlasTexture_nm3fi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nm3fi")
+"texture": ExtResource("6_e5omg")
 }],
 "loop": true,
 "name": &"Andar",
@@ -4651,7 +4652,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_we0v0"]
-size = Vector2(50, 84)
+size = Vector2(50, 72)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybmia"]
+size = Vector2(136, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ucsi"]
 atlas = ExtResource("10_eieax")
@@ -4697,8 +4701,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjch7"]
 size = Vector2(130.977, 79.8025)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ub2gc"]
-size = Vector2(114, 79)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ygu2x"]
+radius = 64.0
 
 [node name="f1" type="Node2D"]
 
@@ -4725,8 +4729,20 @@ sprite_frames = SubResource("SpriteFrames_c3dci")
 animation = &"Andar"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(-592.406, -19.1194)
+position = Vector2(-584, -20)
 shape = SubResource("RectangleShape2D_we0v0")
+
+[node name="Direction" type="Marker2D" parent="Player"]
+light_mask = 16
+position = Vector2(0, -3)
+
+[node name="ActionableFinder" type="Area2D" parent="Player/Direction"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Direction/ActionableFinder"]
+position = Vector2(-588, -21)
+shape = SubResource("RectangleShape2D_ybmia")
 
 [node name="peixe1" type="CharacterBody2D" parent="."]
 position = Vector2(-240, -120)
@@ -4734,7 +4750,7 @@ platform_wall_layers = 153
 script = ExtResource("9_oixvf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="peixe1"]
-position = Vector2(856, 712)
+position = Vector2(848, 712)
 scale = Vector2(0.488636, 0.501238)
 sprite_frames = SubResource("SpriteFrames_25ra4")
 animation = &"l1"
@@ -4744,14 +4760,13 @@ position = Vector2(848, 716)
 scale = Vector2(0.488636, 0.501238)
 shape = SubResource("RectangleShape2D_kjch7")
 
-[node name="chat_detection_area" type="Area2D" parent="peixe1"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="peixe1/chat_detection_area"]
-shape = SubResource("RectangleShape2D_ub2gc")
-
 [node name="Timer" type="Timer" parent="peixe1"]
 autostart = true
 
-[connection signal="body_entered" from="peixe1/chat_detection_area" to="peixe1" method="_on_chat_detection_area_body_entered"]
-[connection signal="body_exited" from="peixe1/chat_detection_area" to="peixe1" method="_on_chat_detection_area_body_exited"]
+[node name="Actionable" parent="peixe1" instance=ExtResource("11_8kplm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="peixe1/Actionable"]
+position = Vector2(840, 712)
+shape = SubResource("CircleShape2D_ygu2x")
+
 [connection signal="timeout" from="peixe1/Timer" to="peixe1" method="_on_timer_timeout"]
