@@ -1,22 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://c00rys5v1nyig"]
+[gd_scene load_steps=8 format=3 uid="uid://c00rys5v1nyig"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_udvj4"]
 [ext_resource type="Texture2D" uid="uid://ftqia7p67d1u" path="res://Sprites/Capivara/capivarinhas.png" id="2_pf3gw"]
-[ext_resource type="Texture2D" uid="uid://dl0vrvaopu0ub" path="res://Sprites/Capivara/aaa2.png" id="3_3bhmr"]
 [ext_resource type="Texture2D" uid="uid://dsq083nxym801" path="res://Sprites/Capivara/aaa.png" id="4_c30xd"]
-[ext_resource type="Texture2D" uid="uid://dunlt3hog2ykq" path="res://Sprites/Capivara/b.png" id="5_rdifm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mtikh"]
 atlas = ExtResource("2_pf3gw")
 region = Rect2(343, 536, 288, 400)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qgc8"]
-atlas = ExtResource("2_pf3gw")
-region = Rect2(652, 493, 326, 492)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nm3fi"]
-atlas = ExtResource("5_rdifm")
-region = Rect2(25, 7, 310, 420)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x6vu"]
 atlas = ExtResource("2_pf3gw")
@@ -29,16 +19,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_mtikh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0qgc8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_3bhmr")
-}, {
-"duration": 1.0,
 "texture": ExtResource("4_c30xd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nm3fi")
 }],
 "loop": true,
 "name": &"Andar",

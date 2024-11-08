@@ -1,5 +1,5 @@
 c693a20e708c4e09bfa9edf12a750cf8
-::res://::1731087487
+::res://::1731088081
 f1.tscn::PackedScene::4373752788401193282::1731087046::0::1::::<><>::uid://cmg7q5sn3dkco::::res://Tiles/backForest.png<>uid://dh2nbx4jeevqg::::res://Tiles/Tiles.png<>res://player.gd<>uid://p0txulj2o3la::::res://Tiles/tile.png<>uid://ftqia7p67d1u::::res://Sprites/Capivara/capivarinhas.png<>uid://dl0vrvaopu0ub::::res://Sprites/Capivara/aaa2.png<>uid://dsq083nxym801::::res://Sprites/Capivara/aaa.png<>uid://dunlt3hog2ykq::::res://Sprites/Capivara/b.png<>res://peixe_1.gd<>uid://rhsuy57tmoeo::::res://npcs/animais/peixe1.png<>uid://6yyim8eer220::::res://helpers/actionable.tscn
 global.gd::GDScript::-1::1731031807::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::599234268071361945::1731023108::1731042438::1::::<><>::
